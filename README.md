@@ -77,3 +77,20 @@ samtools view -b -o /mnt/sdb/long_reads_curso/grupo1/EOL1_chr15.bam /mnt/sdb/lon
 samtools sort -o /mnt/sdb/long_reads_curso/grupo1/EOL1_chr15_sorted.bam /mnt/sdb/long_reads_curso/grupo1/EOL1_chr15.bam
 samtools index /mnt/sdb/long_reads_curso/grupo1/EOL1_chr15_sorted.bam
 ```
+
+# ANÁLISE BIOINFORMÁTICA
+## Chamada e filtragem de variantes
+Efetuar a chamada de variantes estruturais com o Sniffles2:
+```
+conda activate curso_amb_long_reads
+sniffles --input /mnt/sdb/long_reads_curso/grupo1/EOL1_chr15.bam --sample-id EOL1_Chr15_LRCourse --qc-output-all --minsvlen 10000 --reference /mnt/sdb/long_reads_curso/raw_data/fasta_ref_genome/chr15.fasta --symbolic --vcf EOL1_chr15.vcf
+```
+
+Efetuar filtragem de variantes com o bcftools:
+```
+conda activate base
+
+bcftools view -i 'FILTER="PASS" && INFO/SUPPORT >= 2' /mnt/sdb/long_reads_curso/grupo1/EOL1_chr15.vcf --output /mnt/sdb/long_reads_curso/grupo1/EOL1_chr15_filtered.vcf
+
+bcftools view -e 'SVTYPE = "INV"' /mnt/sdb/long_reads_curso/grupo1/EOL1_chr15.vcf --output /mnt/sdb/long_reads_curso/grupo1/EOL1_chr15_filtered_2.vcf
+``` 
