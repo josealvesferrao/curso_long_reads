@@ -70,3 +70,10 @@ conda activate curso_amb_igv
 igv
 ```
 
+Converter formato SAM para BAM, ordenar por coordenada genómica e indexar:
+```
+conda activate curso_amb
+samtools view -b -o /mnt/sdb/long_reads_curso/grupo1/EOL1_chr15.bam /mnt/sdb/long_reads_curso/grupo1/EOL1_chr15.sam
+samtools sort -o /mnt/sdb/long_reads_curso/grupo1/EOL1_chr15_sorted.bam /mnt/sdb/long_reads_curso/grupo1/EOL1_chr15.bam
+samtools index /mnt/sdb/long_reads_curso/grupo1/EOL1_chr15_sorted.bam
+```
