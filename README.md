@@ -34,4 +34,39 @@ Para desativar o ambiente e regressar ao ambiente anterior (base):
 conda deactivate
 ```
 
+# ANÁLISE BIOINFORMÁTICA
+## Mapeamento de reads
+Visualizar a estrutura do ficheiro fastq (reads):
+```
+cd /mnt/sdb/long_reads_curso/raw_data/EOL1/
+head -n 4 EOL1_chr15.fastq
+```
+
+Correr a ferramenta Minimap2 (ver menu de opções/argumentos):
+```
+conda activate curso_amb_long_reads
+minimap2 --help
+```
+
+Efetuar o mapeamento das reads a partir do ficheiro EOL1_chr15.fastq (sequência de referência: chr15.fasta; adaptar diretório de output (opção "-o" de acordo com o seu grupo1,2,3...):
+```
+minimap2 -a -x map-ont -t 1 -o /mnt/sdb/long_reads_curso/grupo1/EOL1_chr15.sam -R '@RG\tID:flowcell1\tLB:EOL1\tPL:ONT\tSM:EOL1’ /mnt/sdb/long_reads_curso/raw_data/fasta_ref_genome/chr15.fasta /mnt/sdb/long_reads_curso/raw_data/EOL1/EOL1_chr15.fastq
+```
+
+Visualizar a estrutura do cabeçalho (opção "-H") do ficheiro BAM (reads mapeadas):
+```
+cd /mnt/sdb/long_reads_curso/raw_data/EOL1/
+samtools view -H EOL1_merged_aligned_hg38_sorted.bam | less
+``` 
+
+Visualizar secção de alinhamento no ficheiro BAM (reads mapeadas):
+```
+samtools view EOL1_merged_aligned_hg38_sorted.bam | less
+```
+
+Abrir o software IGV no servidor:
+```
+conda activate curso_amb_igv
+igv
+```
 
