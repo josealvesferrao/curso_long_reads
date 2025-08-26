@@ -20,3 +20,17 @@ Clonar o repositório git:
 git clone https://github.com/krother/bash_tutorial.git
 ```
 
+Testar os ambientes "conda". Listar os ambientes disponíveis:
+```
+conda env list
+```
+Ativar o ambiente que vai ser usado mais vezes durante o curso (inclui as ferramentas minimap2, sniffles2, nanoplot, samtools)
+```
+conda activate curso_amb_long_reads
+```
+Para desativar o ambiente e regressar ao ambiente anterior (base):
+```
+conda deactivate
+```
+
+
