@@ -35,6 +35,14 @@ conda deactivate
 ```
 
 # ANÁLISE BIOINFORMÁTICA
+## Análise primária
+Correr o NanoPlot no ficheiro sequencing_summary.txt da respetiva amostra:
+```
+NanoPlot --threads 1 --outdir . --loglength --N50 --format pdf --summary /mnt/sdb/long_reads_curso/raw_data/EOL1/sequencing_summary.txt --plots kde 
+```
+
+
+# ANÁLISE BIOINFORMÁTICA
 ## Mapeamento de reads
 Visualizar a estrutura do ficheiro fastq (reads):
 ```
