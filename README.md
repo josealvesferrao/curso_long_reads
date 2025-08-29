@@ -58,8 +58,15 @@ minimap2 --help
 
 Efetuar o mapeamento das reads a partir do ficheiro EOL1_chr15.fastq (sequência de referência: chr15.fasta; adaptar diretório de output (opção "-o" de acordo com o seu grupo1,2,3...):
 ```
-minimap2 -a -x map-ont -t 1 -o /mnt/sdb/long_reads_curso/grupo1/EOL1_chr15.sam -R '@RG\tID:flowcell1\tLB:EOL1\tPL:ONT\tSM:EOL1’ /mnt/sdb/long_reads_curso/raw_data/fasta_ref_genome/chr15.fasta /mnt/sdb/long_reads_curso/raw_data/EOL1/EOL1_chr15.fastq
+minimap2 -a -x map-ont -t 1 -o /mnt/sdb/long_reads_curso/grupo1/EOL1_chr15.sam -R '@RG\tID:flowcell1\tLB:EOL1\tPL:ONT\tSM:EOL1' /mnt/sdb/long_reads_curso/raw_data/fasta_ref_genome/chr15.fasta /mnt/sdb/long_reads_curso/raw_data/EOL1/EOL1_chr15.fastq
 ```
+
+
+Efetuar o mapeamento das reads a partir do ficheiro 697_chr12.fastq (sequência de referência: chr12.fasta; adaptar diretório de output (opção "-o" de acordo com o seu grupo1,2,3...):
+```
+minimap2 -a -x map-ont -t 1 -o /mnt/sdb/long_reads_curso/grupo1/697_chr12.sam -R '@RG\tID:flowcell1\tLB:697\tPL:ONT\tSM:697' /mnt/sdb/long_reads_curso/raw_data/fasta_ref_genome/chr12.fasta /mnt/sdb/long_reads_curso/raw_data/697/697_chr12.fastq
+```
+
 
 Visualizar a estrutura do cabeçalho (opção "-H") do ficheiro BAM (reads mapeadas):
 ```
